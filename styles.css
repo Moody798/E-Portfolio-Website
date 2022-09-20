@@ -30,6 +30,12 @@ a {
   text-decoration: none;
   position: relative;
 }
+i{
+  transition: opacity 300ms ease;
+}
+i:hover{
+  opacity: 0.7;
+}
 .link_hover_effect:after {
   content: "";
   position: absolute;
@@ -62,6 +68,7 @@ li {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 12px;
 }
 .container {
   padding: 50px 0;
@@ -138,22 +145,53 @@ nav {
   overflow: hidden;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
   margin-bottom: 28px;
+  animation: animate_profile_picture 800ms 200ms backwards;
 }
+
+@keyframes animate_profile_picture{
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .about_me_picture {
   width: 100%;
 }
 .about_me_info_title {
   margin-bottom: 16px;
+  animation: fade_up 650ms 400ms backwards;
 }
 .about_me_info_para {
   font-size: 20px;
   margin-bottom: 28px;
+  animation: fade_up 650ms 600ms backwards;
 }
 .about_me_link {
   font-size: 20px;
   color: #242424;
   padding: 0 16px;
 }
+.about_me_links{
+  animation: fade_up 650ms 800ms backwards;
+}
+
+@keyframes fade_up{
+  0%{
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .about_me_img_container {
   flex: 1;
   display: flex;
@@ -161,6 +199,31 @@ nav {
 }
 .about_me_img {
   width: 100%;
+  animation: fade_in 1200ms 800ms backwards;
+}
+
+@keyframes fade_in{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.wave{
+  display: inline-block;
+  animation:animate_wave 500ms infinite ease-in-out;
+}
+@keyframes animate_wave{
+  0%{
+    transform: rotate(0);
+  }
+  50%{
+    transform: rotate(30deg);
+  }
+  100%{
+    transform: rotate(0);
+  }
 }
 
 /* tech stack  */
@@ -333,18 +396,51 @@ footer {
   nav {
     height: 68px;
   }
-  h1{
+  h1 {
     font-size: 28px;
   }
-  .about_me_info_para{
+  .about_me_info_para {
     font-size: 18px;
   }
-  .language{
+  .language {
     width: 50%;
+  }
+  .project_discription_para {
+    font-size: 14px;
+  }
+  .project_discription {
+    left: 30px;
+    padding-right: 30px;
   }
 }
 
-/* SMALL PHONES, LARGE SMARTPHONES */
+/* SMALL PHONES*/
 
-@media (max-width: 550px) {
+@media (max-width: 480px) {
+  .nav_link:not(:last-child) {
+    display: none;
+  }
+  .project_discription{
+    padding: 0;
+    left: 0;
+    width: 100%;
+
+  }
+  .project_discription_para {
+    display: none;
+  }
+  .project_discription_links {
+    display: flex;
+    justify-content: center;
+  }
+  .project_discription_title{
+    font-size: 32px;
+    line-height: 1;
+    text-align: center;
+  }
+  .project_discription_sub_title {
+    text-align: center;
+    margin: 12PX 0;
+
+  }
 }
